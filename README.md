@@ -2,14 +2,16 @@
 how to install LEMP in Arch Linux for Local Development
 
 Update your system
-`$ sudo pacman -Syu or sudo pacman -Syyu`
-
+```
+$ sudo pacman -Syu or sudo pacman -Syyu
+```
 First Install Nginx Web Server
-`$ sudo pacman -S nginx`
-`$ sudo systemctl start nginx`
-`$ sudo systemctl enable nginx`
-`$ sudo systemctl status nginx`
-
+```
+$ sudo pacman -S nginx
+$ sudo systemctl start nginx
+$ sudo systemctl enable nginx
+$ sudo systemctl status nginx
+```
 Next Install MariaDB
 > $ sudo pacman -S mariadb
 
