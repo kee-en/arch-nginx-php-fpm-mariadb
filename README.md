@@ -13,21 +13,25 @@ $ sudo systemctl enable nginx
 $ sudo systemctl status nginx
 ```
 Next Install MariaDB
-> $ sudo pacman -S mariadb
-
+```
+$ sudo pacman -S mariadb
+```
 Once installed, proceed & initialize the MariaDB data directory and create system tables
-> $ sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-
-> $ sudo systemctl start mariadb
-> $ sudo systemctl enable mariadb
-> $ sudo systemctl status mariadb
-
+```
+$ sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+```
+```
+$ sudo systemctl start mariadb
+$ sudo systemctl enable mariadb
+$ sudo systemctl status mariadb
+```
 Run the below to begin Mariadb
-> $ sudo mysql_secure_installation
-
+```
+$ sudo mysql_secure_installation
+```
 Once you in follow this Steps:
 
-> Enter current password for root (Enter for none)
+>Enter current password for root (Enter for none)
 
 > Set root password: Set n
 
@@ -40,31 +44,37 @@ Once you in follow this Steps:
 > Reload privilage tables now : y
 
 Next you need to remove the native password if you want no password login in Mariadb, follow this code:
-> $ sudo mysql
-
-> ALTER USER root@localhost IDENTIFIED VIA mysql_native_password USING PASSWORD("");
-
+```
+$ sudo mysql
+```
+```
+ALTER USER root@localhost IDENTIFIED VIA mysql_native_password USING PASSWORD("");
+```
 Now it's time to install PHP server-side scripting language.
-> $ sudo pacman -S php php-fpm
-> $ sudo systemctl start php-fpm
-> $ sudo systemctl enable php-fpm
-> $ sudo systemctl status php-fpm
-
+```
+$ sudo pacman -S php php-fpm
+$ sudo systemctl start php-fpm
+$ sudo systemctl enable php-fpm
+$ sudo systemctl status php-fpm
+```
 To list all available PHP module
-> $ sudo pacman -S php[TAB]
-> $ sudo pacman -Ss | grep php
-
+```
+$ sudo pacman -S php[TAB]
+$ sudo pacman -Ss | grep php
+```
 Then configure php.ini file to include necessary extension needed by
-> $ sudo nano /etc/php/php.ini
-
+```
+$ sudo nano /etc/php/php.ini
+```
 Locate with [CTRL + W] keys(if you use nano editor) and uncomment(remove ; at the line beginning) extension you want.
 ex:
 extension=mysqli.so
 
 Next step is to enable PHP-FPM FastCGI on localhost Nginx Directive
-> $ sudo mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
-> $ sudo nano /etc/nginx/nginx.conf
-
+```
+$ sudo mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
+$ sudo nano /etc/nginx/nginx.conf
+```
 Add the whole following context on nginx.conf
 You will need change the root directory if you have different one.
 Mine was in the /srv/http
@@ -194,6 +204,7 @@ http {
 }
 ```
 After All Configuration had been. all you need is to restart Nginx and PHP-FPM
-
-> $ sudo systemctl restart php-fpm
-> $ sudo systemctl restart nginx
+```
+$ sudo systemctl restart php-fpm
+$ sudo systemctl restart nginx
+```
