@@ -66,7 +66,7 @@ Next step is to enable PHP-FPM FastCGI on localhost Nginx Directive
 Add the whole following context on nginx.conf
 You will need change the root directory if you have different one.
 Mine was in the /srv/http
-
+```
 #user html;
 worker_processes  2;
 
@@ -122,15 +122,15 @@ http {
         }
     }            
 }
-
+```
 if you have a Codeigniter Framework. to run it you will need add this code inside in server{}
-
+```
 location /ci-folder/ {
   try_files $uri /ci-folder/index.php$is_args$args;
 }
-
+```
 Full Example of Nginx.conf:
-
+```
 #user html;
 worker_processes  2;
 
@@ -190,8 +190,8 @@ http {
         }
     }         
 }
-
+```
 After All Configuration had been. all you need is to restart Nginx and PHP-FPM
 
-$ sudo systemctl restart php-fpm
-$ sudo systemctl restart nginx
+> $ sudo systemctl restart php-fpm
+> $ sudo systemctl restart nginx
