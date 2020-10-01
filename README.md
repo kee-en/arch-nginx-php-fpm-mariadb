@@ -2,7 +2,7 @@
 how to install LEMP in Arch Linux for Local Development
 
 Update your system
-$sudo pacman -Syu or sudo pacman -Syyu
+> $sudo pacman -Syu or sudo pacman -Syyu
 
 First Install Nginx Web Server
 $sudo pacman -S nginx
